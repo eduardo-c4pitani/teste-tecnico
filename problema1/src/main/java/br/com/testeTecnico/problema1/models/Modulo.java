@@ -15,6 +15,7 @@ import java.util.List;
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 public class Modulo {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -28,4 +29,5 @@ public class Modulo {
     @OneToMany(mappedBy = "modulo", fetch = FetchType.LAZY)
     @JsonIgnore
     private List<Ticket> tickets;
+
 }

@@ -13,6 +13,7 @@ import java.util.List;
 @Table(name = "cliente", schema = "public")
 @Entity
 public class Cliente {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")

@@ -14,6 +14,7 @@ import java.util.Date;
 @Entity(name = "id")
 @EntityListeners(AuditingEntityListener.class)
 public class Ticket {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -41,4 +42,5 @@ public class Ticket {
     @Temporal(TemporalType.DATE)
     @Column(name = "data_encerramento")
     private Date dataEncerramento;
+
 }

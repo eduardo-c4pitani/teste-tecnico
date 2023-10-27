@@ -10,7 +10,9 @@ import java.util.Map;
 @Getter
 @Setter
 public class TicketDto {
+    
     private Map ticketCliente;
     private Map ticketModulo;
     private List<Ticket> ticket;
+
 }

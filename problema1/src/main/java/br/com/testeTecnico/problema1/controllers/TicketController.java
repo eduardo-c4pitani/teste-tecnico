@@ -21,17 +21,22 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/tickets")
 public class TicketController {
+
     @Inject
     private EntityManager em;
+
     @Inject
     private ClienteRepository clienteRepository;
+
     @Inject
     private ModuloRepository moduloRepository;
+
     @Inject
     private TicketRepository ticketRepository;
 
     @PostMapping("/incluir")
     public ResponseEntity<Ticket>add(@RequestBody Ticket ticket) {
+
         Ticket t;
         try {
             t = ticketRepository.save(ticket);
@@ -40,10 +45,12 @@ public class TicketController {
             System.out.println(e.getMessage());
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
+
     }
 
     @GetMapping("/busca/{mes}/{ano}")
     public TicketDto getTicketsMesAno(@PathVariable("mes") Long mes, @PathVariable("ano") Long ano) {
+
         List<Cliente>clientes = clienteRepository.findAll();
         List<Long>idClientes = clientes.stream().map(cliente -> cliente.getId()).collect(Collectors.toList());
         Map<Long, Long> contagemTicketsPorCliente = new HashMap<>();
@@ -75,8 +82,6 @@ public class TicketController {
 
         return ticketDto;
 
-
     }
-
 
 }

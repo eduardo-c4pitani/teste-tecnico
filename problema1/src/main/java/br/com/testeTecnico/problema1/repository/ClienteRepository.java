@@ -5,5 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.ArrayList;
 
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
+
     ArrayList<Cliente> findAll();
+
 }
